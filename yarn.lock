@@ -2991,14 +2991,14 @@ eslint-config-love@^116.0.0:
     eslint-plugin-promise "^7.0.0"
     typescript-eslint "^8.15.0"
 
-eslint-config-txo-package-typescript@^1.0.25:
-  version "1.0.25"
-  resolved "https://registry.yarnpkg.com/eslint-config-txo-package-typescript/-/eslint-config-txo-package-typescript-1.0.25.tgz#ed3247cbe094705ef108955c2068a99c30246e1d"
-  integrity sha512-7A0jxg10cMxhCYChH4aoiARGVSMTUDFd3Npc46erJsVXeCOYZndFBf57e/4JVj45Kd4tjL9dp+5KVJlcJwPYiQ==
+eslint-config-txo-package-typescript@^1.0.26:
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/eslint-config-txo-package-typescript/-/eslint-config-txo-package-typescript-1.0.26.tgz#a072cea0ac7e6465a0cc51822b8b6db7cf54451c"
+  integrity sha512-13Au69HTWyQzm9ObTS6TvRmcJaujyRH0sGXRJ00A2cFzdHdvxsdvsSdpynm+dqtajiEKGnckeheeOQ2G44gkeA==
   dependencies:
-    eslint-config-txo-typescript "^7.3.21"
+    eslint-config-txo-typescript "^7.3.22"
 
-eslint-config-txo-typescript@^7.3.21:
+eslint-config-txo-typescript@^7.3.22:
   version "7.3.22"
   resolved "https://registry.yarnpkg.com/eslint-config-txo-typescript/-/eslint-config-txo-typescript-7.3.22.tgz#34559f4678ba1d36552dd3d4dc7b2154b654335b"
   integrity sha512-y0E8xeFK2C+pvfEWFcmUlh8SZuqJRGYl+9KZZ+/6LS5dTU8TfTTaz5mdsF8GQ5Thv4nDfXjgQSXhPjpszZvwow==
