@@ -46,7 +46,7 @@ export const delayedSubscribeErrorListener = (): typeof subscribeErrorListener =
   const errorQueue: unknown[] = []
   let _errorListener: ErrorListener | undefined = undefined
 
-  const unsubscribeRootErrorListener = subscribeErrorListener((error) => {
+  subscribeErrorListener((error) => {
     if (_errorListener != null) {
       _errorListener(error)
     } else {
@@ -54,13 +54,13 @@ export const delayedSubscribeErrorListener = (): typeof subscribeErrorListener =
     }
   })
 
-  const unsubscribeDelayedErrorListener = (): void => {
-    unsubscribeRootErrorListener()
+  const unsubscribeErrorListener = (): void => {
+    _errorListener = undefined
   }
 
   return (errorListener: ErrorListener) => {
     if (_errorListener === errorListener) {
-      return unsubscribeDelayedErrorListener
+      return unsubscribeErrorListener
     }
     if (_errorListener != null) {
       throw new Error('Error listener already subscribed')
@@ -72,6 +72,6 @@ export const delayedSubscribeErrorListener = (): typeof subscribeErrorListener =
       errorListener(errorQueue.shift())
     }
 
-    return unsubscribeDelayedErrorListener
+    return unsubscribeErrorListener
   }
 }
