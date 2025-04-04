@@ -1,3 +1,10 @@
+## [3.2.0](https://github.com/technology-studio/error-handler-peer/compare/v3.1.1...v3.2.0) (2025-04-04)
+
+
+### Features
+
+* implement `delayedSubscribeErrorListener` ([#817](https://github.com/technology-studio/error-handler-peer/issues/817)) ([7c0e0ef](https://github.com/technology-studio/error-handler-peer/commit/7c0e0ef0bc66c54848ae8b1028f3d32e9e773f43))
+
 ## [3.1.1](https://github.com/technology-studio/error-handler-peer/compare/v3.1.0...v3.1.1) (2024-12-18)
 
 
