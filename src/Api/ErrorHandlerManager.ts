@@ -27,6 +27,7 @@ export const reportError = (error: unknown): void => {
       listenerErrorList.push(error)
     }
   }
+  // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- check if listenerErrorList is empty
   if (listenerErrorList.length > 0) {
     listenerErrorList.push(error)
     throw new FatalError('FATAL ERROR: Dispatching to error listeners has failed', {
@@ -38,5 +39,39 @@ export const subscribeErrorListener = (errorListener: ErrorListener) => {
   errorListenerList.push(errorListener)
   return () => {
     errorListenerList = errorListenerList.filter(listener => listener !== errorListener)
+  }
+}
+
+export const delayedSubscribeErrorListener = (): typeof subscribeErrorListener => {
+  const errorQueue: unknown[] = []
+  let _errorListener: ErrorListener | undefined = undefined
+
+  subscribeErrorListener((error) => {
+    if (_errorListener != null) {
+      _errorListener(error)
+    } else {
+      errorQueue.push(error)
+    }
+  })
+
+  const unsubscribeErrorListener = (): void => {
+    _errorListener = undefined
+  }
+
+  return (errorListener: ErrorListener) => {
+    if (_errorListener === errorListener) {
+      return unsubscribeErrorListener
+    }
+    if (_errorListener != null) {
+      throw new Error('Error listener already subscribed')
+    }
+    _errorListener = errorListener
+
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers -- report queued errors
+    while (errorQueue.length > 0) {
+      errorListener(errorQueue.shift())
+    }
+
+    return unsubscribeErrorListener
   }
 }
