@@ -1,6 +1,6 @@
 {
   "name": "@txo-peer-dep/error-handler",
-  "version": "3.2.0",
+  "version": "0.0.0-development",
   "description": "Technology Studio - Error handler peer",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
